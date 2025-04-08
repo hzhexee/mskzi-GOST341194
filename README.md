@@ -62,31 +62,6 @@
    - `Write` — добавляет данные к хешируемому сообщению
    - `Sum` — формирует окончательное хеш-значение
 
-## Пример использования
-
-```go
-package main
-
-import (
-    "fmt"
-    "encoding/hex"
-)
-
-func main() {
-    // Создаем новый экземпляр хеш-функции ГОСТ Р 34.11-94
-    h := New(SboxDefault)
-    
-    // Данные для хеширования
-    data := []byte("This is message, length=32 bytes")
-    
-    // Вычисляем хеш
-    h.Write(data)
-    hash := h.Sum(nil)
-    
-    // Выводим результат в шестнадцатеричном виде
-    fmt.Printf("GOST Р 34.11-94 хеш: %s\n", hex.EncodeToString(hash))
-}
-```
 
 ## Схема работы алгоритма
 
