@@ -7,7 +7,6 @@ import (
 	"fmt"             // Пакет для форматированного ввода-вывода
 	"html/template"   // Пакет для работы с HTML шаблонами
 	"io"              // Пакет для работы с операциями ввода-вывода
-	"io/ioutil"       // Пакет для работы с файлами
 	"math/big"        // Пакет для работы с большими числами
 	"net/http"        // Пакет для создания HTTP сервера
 	"os"              // Пакет для работы с операционной системой
@@ -564,7 +563,7 @@ func renderError(w http.ResponseWriter, errMessage string) {
 
 // computeFileHash вычисляет хеш для указанного файла
 func computeFileHash(filePath string) (string, error) {
-	data, err := ioutil.ReadFile(filePath)
+	data, err := os.ReadFile(filePath)
 	if err != nil {
 		return "", err
 	}
